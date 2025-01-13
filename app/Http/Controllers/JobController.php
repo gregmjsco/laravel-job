@@ -14,12 +14,8 @@ class JobController extends Controller
     {
         //
         $title = 'Available Jobs';
-        $jobs = [
-            'PHP Developer',
-            'Laravel Developer',
-            'React Developer',
-        ];
-        return view('jobs.index', compact('title','jobs'));
+        $jobs = ['PHP Developer1', 'Laravel Developer', 'React Developer'];
+        return view('jobs.index', compact('title', 'jobs'));
     }
 
     /**
