@@ -20,4 +20,5 @@ use App\Http\Controllers\JobController;
 
 Route::get('/', [HomeController::class, 'index']);
 Route::resource('jobs', JobController::class);
+Route::get('jobs/{id}', [JobController::class, 'show']);
 
