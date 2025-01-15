@@ -10,6 +10,7 @@
 </head>
 <body class="bg-gray-200">
     <x-header/>
+    <x-hero/>
     <main class="container mx-auto p-4 mt-4">
         {{$slot}}
     </main>
