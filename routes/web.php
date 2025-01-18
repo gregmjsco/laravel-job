@@ -4,7 +4,6 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\JobController;
 
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,9 +15,8 @@ use App\Http\Controllers\JobController;
 |
 */
 
-
-
 Route::get('/', [HomeController::class, 'index']);
+Route::get('/jobs/create', [JobController::class, 'create']);
+Route::post('/jobs', [JobController::class, 'store']);
 Route::resource('jobs', JobController::class);
 Route::get('jobs/{id}', [JobController::class, 'show']);
-
