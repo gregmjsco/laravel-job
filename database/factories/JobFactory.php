@@ -26,7 +26,7 @@ class JobFactory extends Factory
             'tags' => implode(', ', $this->faker->words(3)),
             'job_type' => $this->faker->randomElement([
                 'Full-Time',
-                'Part-Time',
+                'Part-time',
                 'Contract',
                 'Temporary',
                 'Internship',
