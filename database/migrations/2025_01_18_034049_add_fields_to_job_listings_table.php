@@ -16,6 +16,7 @@ return new class extends Migration {
 
         Schema::table('job_listings', function (Blueprint $table) {
             //
+            $table->unsignedBigInteger('user_id')->after('id');
             $table->integer('salary');
             $table->string('tags')->nullable();
             $table
@@ -41,6 +42,13 @@ return new class extends Migration {
             $table->text('company_description')->nullable();
             $table->string('company_logo')->nullable();
             $table->string('company_website')->nullable();
+
+            //Add user foreign key constraint
+            $table
+                ->foreign('user_id')
+                ->references('id')
+                ->on('users')
+                ->onDelete('cascade');
         });
     }
 
@@ -51,6 +59,9 @@ return new class extends Migration {
     {
         Schema::table('job_listings', function (Blueprint $table) {
             //
+            $table->dropForeign(['user_id']);
+            $table->dropColumn('user_id');
+
             $table->dropColumn([
                 'salary',
                 'tags',
