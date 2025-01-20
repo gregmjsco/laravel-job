@@ -48,7 +48,7 @@
           id="benefits"
           name="benefits"
           label="Benefits"
-          placeholder="Health insurance, 401k, paid time off"
+          placeholder="Health insurance, Weekends off"
         />
   
         <x-inputs.text
@@ -56,7 +56,7 @@
           name="tags"
           label="Tags (comma-separated)"
           type="text"
-          placeholder="development,coding,java,python"
+          placeholder="development, coding, javascript, PHP"
         />
   
         <x-inputs.select
@@ -91,7 +91,7 @@
           name="city"
           label="City"
           type="text"
-          placeholder="Albany"
+          placeholder="Sendai"
         />
   
         <x-inputs.text
@@ -99,7 +99,7 @@
           name="prefecture"
           label="prefecture"
           type="text"
-          placeholder="Migagi"
+          placeholder="Miyagi"
         />
   
         <x-inputs.text
