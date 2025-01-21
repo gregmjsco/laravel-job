@@ -8,7 +8,6 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Storage;
 use App\Models\Job;
 use Illuminate\Support\Facades\Redirect;
-use Illuminate\Support\Facades\Auth;
 
 class JobController extends Controller
 {
@@ -59,8 +58,8 @@ class JobController extends Controller
             'company_website' => 'nullable|url',
         ]);
 
-        //Hardcoded user id
-        $validatedData['user_id'] = 1;
+        //Assign user id
+        $validatedData['user_id'] = auth()->user()->id;
 
         //check for image
         if ($request->hasFile('company_logo')) {
