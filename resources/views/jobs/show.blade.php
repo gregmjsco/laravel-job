@@ -94,9 +94,7 @@
         <p class="text-gray-700 text-lg my-3">{{$job->company_description}}</p>
         @endif
         @if($job->company_website)
-        <a href="{{$job->company_website}}" target="_blank" class="text-blue-500"
-          >Visit Website</a
-        >
+        <a href="{{$job->company_website}}" target="_blank" class="text-blue-500">Visit Website</a>
         @endif
       
         <a
