@@ -163,6 +163,12 @@ class JobController extends Controller
         }
         // Delete the job
         $job->delete();
+
+        if (request()->query('from') === 'dashboard') {
+            return redirect()
+                ->route('dashboard.index')
+                ->with('success', 'Job listing deleted successfully!');
+        }
         return redirect()
             ->route('jobs.index')
             ->with('success', 'Job listing deleted successfully!');
