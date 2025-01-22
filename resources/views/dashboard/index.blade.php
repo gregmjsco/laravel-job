@@ -2,6 +2,15 @@
     <section class="flex flex-col md:flex-row gap-6">
         <div class="bg-white p-8 rounded-lg shadow-md w-full md:w-1/2">
             <h3 class="text-3xl text-center font-bold mb-4">Profile Info</h3>
+            @if($user->avatar)
+            <div class="mt-2 flex justify-center">
+            <img
+                src="{{ asset('storage/' . $user->avatar) }}"
+                alt="Avatar"
+                class="w-32 h-32 object-cover rounded-full"
+            />
+            </div>
+            @endif
             <form method="POST" action="{{ route('profile.update') }}" enctype="multipart/form-data">
               @csrf
               @method('PUT')
@@ -18,7 +27,12 @@
               </div>
               <div class="mb-4">
                 <label class="block text-gray-700" for="avatar">Profile Avatar</label>
-                <input id="avatar" type="file" name="avatar" class="w-full px-4 py-2 border rounded focus:outline-none" />
+                <input
+                  id="avatar"
+                  type="file"
+                  name="avatar"
+                  class="w-full px-4 py-2 border rounded focus:outline-none"
+                />
               </div>
               <button type="submit"
                 class="w-full bg-green-500 hover:bg-green-600 text-white px-4 py-2 my-3 rounded focus:outline-none">Save</button>
