@@ -8,6 +8,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\BookmarkController;
+use App\Http\Controllers\ApplicantController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,6 +23,9 @@ use App\Http\Controllers\BookmarkController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 //Route::resource('jobs', JobController::class);
+Route::post('/jobs/{job}/apply', [ApplicantController::class, 'store'])->name(
+    'applicant.store'
+);
 Route::resource('jobs', JobController::class)
     ->middleware('auth')
     ->only(['create', 'edit', 'destroy', 'update']);
