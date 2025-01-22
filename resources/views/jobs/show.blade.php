@@ -68,16 +68,47 @@
             <p>{{$job->benefits}}</p>
           </div>
         @endif
-          <p class="my-5">
-            Put "Job Application" as the subject of your email and attach your
-            resume.
-          </p>
-          <a
-            href="mailto:{{$job->contact_email}}"
-            class="block w-full text-center px-5 py-2.5 shadow-sm rounded border text-base font-medium cursor-pointer text-indigo-700 bg-indigo-100 hover:bg-indigo-200"
+        <!-- Applicant Form -->
+        <div x-data="{ open: false }" id="applicant-form">
+          <button
+            @click="open = true"
+            class="block w-full text-center px-5 py-2.5 mt-5 shadow-sm rounded border text-base font-medium cursor-pointer text-indigo-700 bg-indigo-100 hover:bg-indigo-200"
           >
             Apply Now
-          </a>
+          </button>
+
+          <div
+            x-cloak
+            x-show="open"
+            class="fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50"
+          >
+            <div @click.away="open = false" class="bg-white p-6 rounded-lg shadow-md w-full max-w-md">
+              <h3 class="text-lg font-semibold mb-4">Apply for {{ $job->title }}</h3>
+
+              <form enctype="multipart/form-data">
+                <x-inputs.text id="full_name" name="full_name" label="Full Name" :required="true" />
+                  <x-inputs.text id="contact_phone" name="contact_phone" label="Contact Phone" />
+                  <x-inputs.text id="contact_email" name="contact_email" label="Contact Email" :required="true" />
+                  <x-inputs.text-area id="message" name="message" label="Message" />
+                  <x-inputs.text id="location" name="location" label="Location" />
+                  <x-inputs.file id="resume" name="resume" label="Upload Your Resume (pdf)" :required="true" />
+                  <button
+                    type="submit"
+                    class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md"
+                  >
+                    Submit Application
+                  </button>
+                  <button
+                    type="button"
+                    @click="open = false"
+                    class="ml-2 bg-gray-300 hover:bg-gray-400 text-black px-4 py-2 rounded-md"
+                  >
+                    Cancel
+                  </button>
+              </form>
+            </div>
+          </div>
+        </div>
         </div>
   
         <div class="bg-white p-6 rounded-lg shadow-md mt-6">
