@@ -21,7 +21,7 @@ class JobController extends Controller
     {
         //
         $title = 'Available Jobs';
-        $jobs = Job::all();
+        $jobs = Job::paginate(12);
         return view('jobs.index', compact('title', 'jobs'));
     }
 
