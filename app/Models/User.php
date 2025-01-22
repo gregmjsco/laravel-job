@@ -51,4 +51,9 @@ class User extends Authenticatable
             'job_user_bookmarks'
         )->withTimestamps();
     }
+
+    public function applications(): HasMany
+    {
+        return $this->hasMany(Applicant::class, 'user_id');
+    }
 }
