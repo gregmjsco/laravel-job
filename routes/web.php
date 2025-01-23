@@ -22,7 +22,9 @@ use App\Http\Controllers\ApplicantController;
 */
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
-//Route::resource('jobs', JobController::class);
+Route::get('/jobs/search', [JobController::class, 'search'])->name(
+    'jobs.search'
+);
 Route::post('/jobs/{job}/apply', [ApplicantController::class, 'store'])->name(
     'applicant.store'
 );
