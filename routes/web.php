@@ -56,7 +56,6 @@ Route::middleware('guest')->group(function () {
     Route::post('/login', [LoginController::class, 'authenticate'])->name(
         'login.authenticate'
     );
-    Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 });
 
 Route::get('/dashboard', [DashboardController::class, 'index'])
@@ -78,4 +77,5 @@ Route::middleware('auth')->group(function () {
         BookmarkController::class,
         'destroy',
     ])->name('bookmarks.destroy');
+    Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 });

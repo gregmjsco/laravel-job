@@ -9,12 +9,7 @@
             @auth
             <x-nav-link url="/bookmarks" :active="request()->is('bookmarks')">Saved Jobs</x-nav-link>
             <x-nav-link url="/dashboard" :active="request()->is('dashboard')" icon="gauge">Dashboard</x-nav-link>
-            <form method="POST" action="{{ route('logout') }}">
-                @csrf
-                <button type="submit" class="text-white">
-                  <i class="fa fa-sign-out"></i> Logout
-                </button>
-              </form>
+            <x-logout-button />
             <x-button-link url="/jobs/create" icon="edit">Create Job</x-button-link>
             <div class="flex items-center space-x-3">
                 @if(Auth::user()->avatar)
@@ -47,12 +42,8 @@
         @auth
         <x-nav-link url="bookmarks" :active="request()->is('bookmarks')" :mobile="true">Saved Jobs</x-nav-link>
         <x-nav-link url="/dashboard" :active="request()->is('dashboard')" :mobile="true">Dashboard</x-nav-link>
-        <form method="POST" action="{{ route('logout') }}">
-            @csrf
-            <button type="submit" class="text-white">
-              <i class="fa fa-sign-out"></i> Logout
-            </button>
-          </form>
+        <x-logout-button :mobile="true" />
+        <div class="pt-2"></div>
           <div class="py-2">
               <x-button-link url="/jobs/create" icon="edit" :block="true">Create Job</x-button-link>
           </div>
