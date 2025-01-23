@@ -85,6 +85,16 @@
                 <i class="fas fa-download"></i> Downoad Resume
               </a>
             </p>
+            <!-- Delete Applicant Link -->
+            <form
+            method="POST"
+            action="{{ route('applicants.destroy', $applicant->id) }}"
+            onsubmit="return confirm('Are you sure you want to delete this applicant?');">
+            @csrf @method('DELETE')
+            <button type="submit" class="text-red-500 hover:text-red-700 text-sm">
+              <i class="fas fa-trash-alt"></i> Delete Applicant
+            </button>
+            </form>
             @empty 
             <p class="text-gray-700">No applicants yet.</p>
             @endforelse

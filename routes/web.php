@@ -26,6 +26,13 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::post('/jobs/{job}/apply', [ApplicantController::class, 'store'])->name(
     'applicant.store'
 );
+Route::delete('/applicants/{applicant}', [
+    ApplicantController::class,
+    'destroy',
+])
+    ->name('applicants.destroy')
+    ->middleware('auth');
+
 Route::resource('jobs', JobController::class)
     ->middleware('auth')
     ->only(['create', 'edit', 'destroy', 'update']);
