@@ -4,7 +4,7 @@ return [
     [
         "title" => "Software Engineer",
         "description" =>
-            "As a Software Engineer at Algorix, you will be responsible for designing, developing, and maintaining high-quality software applications. You will work closely with cross-functional teams to deliver scalable and efficient solutions that meet business needs. The role involves writing clean, maintainable code, participating in code reviews, and staying current with industry trends to ensure our technology stack remains cutting-edge.",
+            "Algorix is hiring a Software Engineer to provide technical assistance and support to our clients. You will troubleshoot hardware and software issues, assist with network and system configurations, and ensure the smooth operation of IT infrastructure. Your role involves responding to support requests, documenting issues, and collaborating with the technical team to implement solutions.",
         "salary" => 90000,
         "tags" => "development,coding,java,python",
         "job_type" => "Part-time",
